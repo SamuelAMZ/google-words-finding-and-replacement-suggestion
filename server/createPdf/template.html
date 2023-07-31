@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Template</title>
+    <style>
+      table {
+        border-collapse: collapse;
+        width: 100%;
+      }
+      th,
+      td {
+        border: 1px solid rgb(41, 41, 41);
+        padding: 8px;
+        text-align: left;
+        font-size: 15px;
+        font-weight: 700;
+        line-height: 1.2;
+        width: 33.33%;
+        word-break: break-all;
+      }
+      thead {
+        background-color: rgb(207, 207, 207);
+      }
+      tr td {
+        font-size: 13px !important;
+        width: 33.33% !important;
+        word-break: break-all;
+      }
+    </style>
+  </head>
+  <body>
+    <table>
+      <thead>
+        <tr>
+          <th>WORD/PHRASE FOUND</th>
+          <th>URL WORD/PHRASE FOUND ON</th>
+          <th>SUGGESTED REPLACEMENT</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each results}}
+        <tr>
+          <td>{{this.word}}</td>
+          <td><a href="{{this.url}}">{{this.url}}</a></td>
+          <td>{{this.replacement}}</td>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </body>
+</html>
