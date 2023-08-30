@@ -1,10 +1,10 @@
 const pdf = require("pdf-creator-node");
 const fs = require("fs");
 
-const createPdf = async (results) => {
+const createPdf = async (results, pdfName) => {
   // Read HTML Template
   let templatePath = "./server/createPdf/template.html";
-  let outputPath = "./server/createPdf/words.pdf";
+  let outputPath = `./server/createPdf/${pdfName}.pdf`;
   const html = fs.readFileSync(templatePath, "utf8");
 
   const options = {
@@ -15,7 +15,7 @@ const createPdf = async (results) => {
     width: "210mm",
     header: {
       height: "15mm",
-      contents: '<div style="text-align: center;">Word Finder</div>',
+      contents: "",
     },
     footer: {
       height: "15mm",
@@ -31,15 +31,12 @@ const createPdf = async (results) => {
     type: "",
   };
 
-  pdf
-    .create(document, options)
-    .then((res) => {
-      console.log(res);
-      return res;
-    })
-    .catch((error) => {
-      console.log(error);
-    });
+  try {
+    const res = await pdf.create(document, options);
+    return res;
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 module.exports = createPdf;

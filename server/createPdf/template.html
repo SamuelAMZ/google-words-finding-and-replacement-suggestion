@@ -3,7 +3,16 @@
   <head>
     <meta charset="UTF-8" />
     <title>Template</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
     <style>
+      body {
+        font-family: "Urbanist", sans-serif;
+      }
       table {
         border-collapse: collapse;
         width: 100%;
@@ -12,30 +21,61 @@
       td {
         border: 1px solid rgb(41, 41, 41);
         padding: 8px;
-        text-align: left;
+        text-align: center;
         font-size: 15px;
         font-weight: 700;
         line-height: 1.2;
         width: 33.33%;
-        word-break: break-all;
       }
       thead {
-        background-color: rgb(207, 207, 207);
+        background-color: #d6d6d6;
+        font-size: 12px;
+        text-transform: uppercase;
       }
       tr td {
-        font-size: 13px !important;
+        font-size: 12px !important;
         width: 33.33% !important;
         word-break: break-all;
+        color: black;
+      }
+      /* tr td a {
+        color: black;
+        text-decoration: none;
+      } */
+      header {
+        font-size: 12px;
+        width: 80%;
+        text-align: center;
+        margin: 0 auto;
+        font-weight: 500;
+      }
+      footer {
+        margin-top: 1rem;
+        font-size: 8px;
+        text-align: center;
+      }
+      img {
+        height: 55px;
+        width: auto;
+        margin: 0 auto;
       }
     </style>
   </head>
   <body>
+    <header>
+      <img
+        src="http://cdn.mcauto-images-production.sendgrid.net/6159b4dceab68db6/d502bcae-96a7-4297-a254-6b673ee18b7a/522x126.png"
+        alt=""
+      />
+      <p>WEBSITE RISK MANAGEMENT TOOL FOR INSURANCE AGENTS AND BROKERS</p>
+    </header>
+
     <table>
       <thead>
         <tr>
-          <th>WORD/PHRASE FOUND</th>
-          <th>URL WORD/PHRASE FOUND ON</th>
-          <th>SUGGESTED REPLACEMENT</th>
+          <th>Risky term found</th>
+          <th>Page found</th>
+          <th>Alternative term</th>
         </tr>
       </thead>
       <tbody>
@@ -48,5 +88,27 @@
         {{/each}}
       </tbody>
     </table>
+
+    <footer>
+      <p>
+        This is intended to be used for general informational purposes only and
+        is not to be relied upon or used for any particular purpose. This is not
+        an exhaustive search tool and only contains some of the most common and
+        repeated terms that have been used by customers and their attorneys in
+        claims against insurance agencies. Risky Terms shall not be held
+        responsible in any way for, and specifically disclaims any liability
+        arising out of or in any way connected to, reliance on or use of any of
+        the information contained, referenced, or shared herein. The information
+        contained, referenced, or shared is not intended to constitute and
+        should not be considered legal, accounting or professional advice, nor
+        shall it serve as a substitute for the recipient obtaining such advice.
+        The views expressed do not necessarily represent the views of Risky
+        Terms and/or its subsidiaries and/or management and/or shareholders. The
+        decision to implement the suggestions provided in the end user report is
+        solely up to the end user. Risky Terms will in no way be involved in the
+        implementation and/or content management of the end user’s website or
+        digital properties
+      </p>
+    </footer>
   </body>
 </html>

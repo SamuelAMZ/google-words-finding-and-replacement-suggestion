@@ -1,10 +1,14 @@
 const axios = require("axios");
 
-const API_KEY = "10a6a2466b1cb835af71add8997b2c94";
+const API_KEY = "e11b3835c42819635ea8aa846dd8df3f";
 
 const solveCaptcha = async (page) => {
   // Wait for the reCAPTCHA iframe to be present
-  await page.waitForSelector(".g-recaptcha iframe", { timeout: 2500 });
+  try {
+    await page.waitForSelector(".g-recaptcha iframe", { timeout: 7000 });
+  } catch (error) {
+    console.log("no captcha found");
+  }
 
   // Get the site key from the iframe source
   const iframeSrc = await page.evaluate(() => {
@@ -64,7 +68,7 @@ const solveCaptcha = async (page) => {
       captchaResultResponse.data.request !== "CAPCHA_NOT_READY" &&
       captchaResultResponse.data.status === 0
     ) {
-      console.log(captchaResultResponse.data);
+      // console.log(captchaResultResponse.data);
       console.log("error solving captcha");
       return;
     }

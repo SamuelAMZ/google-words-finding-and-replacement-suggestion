@@ -15,8 +15,6 @@ const linkBasedNavigation = async (page, numberOfPage, keyword, wordsArray) => {
     return arrArranged.join(" OR ");
   };
 
-  console.log(constitute());
-
   // encode keyword
   let encodedKeyword = encodeURIComponent(`site:${keyword} ${constitute()}`);
   let results = [];
@@ -34,7 +32,7 @@ const linkBasedNavigation = async (page, numberOfPage, keyword, wordsArray) => {
     try {
       await solveCaptcha(page);
     } catch (error) {
-      console.log(error);
+      console.log("error solving captcha linknav/index");
     }
 
     // check if result found on page
